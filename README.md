@@ -1,6 +1,6 @@
 # CSC-Courses :desktop_computer:
 
-This repo stores all of my projects and labs from my past and currents college courses ! c:
+This repo stores all of my projects and labs for my past and currents college courses ! c:
 # Courses in Progress :books:
 ## Operating Systems Programming | CSC 305
 :black_small_square: n/a  
