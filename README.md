@@ -18,9 +18,9 @@ This repo stores all of my projects and labs for my past and currents college co
 :black_small_square: [Coffee Shop](https://github.com/giannagalard/CSC-Courses/blob/main/Intermediate%20Programming/Coffee%20Shop.cpp)  
 :black_small_square: [Multiplication Table](https://github.com/giannagalard/CSC-Courses/blob/main/Intermediate%20Programming/Multiplication%20Table.cpp)  
 ## Computers, Networking and Security | CSC 220
-:black_small_square:[Add Variables](https://github.com/giannagalard/CSC-Courses/commit/c2659703b004187c41d3ecafdc22f398501b20f6)  
+:black_small_square: [Add Variables](https://github.com/giannagalard/CSC-Courses/commit/c2659703b004187c41d3ecafdc22f398501b20f6)  
 :black_small_square: [Group Work Calculator](https://github.com/giannagalard/CSC-Courses/blob/main/Computers%2C%20Networking%20and%20Security/GroupWorkCalc.asm)  
-:black_small_square:[Test Fill Array](https://github.com/giannagalard/CSC-Courses/blob/main/Computers%2C%20Networking%20and%20Security/TestFillArray.asm)  
+:black_small_square: [Test Fill Array](https://github.com/giannagalard/CSC-Courses/blob/main/Computers%2C%20Networking%20and%20Security/TestFillArray.asm)  
 ## Data Structures | CSC 326
 :black_small_square: [Garage Lab](https://github.com/giannagalard/CSC-Courses/tree/main/Data%20Structures/Garage%20Lab)  
 :black_small_square: [Sequence Lab](https://github.com/giannagalard/CSC-Courses/tree/main/Data%20Structures/Sequence%20Lab)
