@@ -9,7 +9,8 @@ This repo stores all of my projects and labs for my past and currents college co
 :black_small_square: [Julian Calendar](https://github.com/giannagalard/CSC-Courses/blob/main/Object-Oriented%20Software%20Design/Julian%20Calendar.java)  
 :black_small_square: [Lotto Quick Picker](https://github.com/giannagalard/CSC-Courses/blob/main/Object-Oriented%20Software%20Design/Lotto%20Quick%20Picker.java)  
 :black_small_square: [Numeric Analyzer](https://github.com/giannagalard/CSC-Courses/blob/main/Object-Oriented%20Software%20Design/Numeric%20Analyzer.java)  
-:black_small_square: [Radio](https://github.com/giannagalard/CSC-Courses/blob/main/Object-Oriented%20Software%20Design/Radio.java)  
+:black_small_square: [Radio](https://github.com/giannagalard/CSC-Courses/blob/main/Object-Oriented%20Software%20Design/Radio.java)    
+:black_small_square: [TV](https://github.com/giannagalard/CSC-Courses/blob/main/Object-Oriented%20Software%20Design/TV.java)
 # Completed Courses :heavy_check_mark: 
 ## Intermediate Programming | CSC 211
 :black_small_square: [Clock](https://github.com/giannagalard/CSC-Courses/blob/main/Intermediate%20Programming/Clock.cpp)    
