@@ -4,7 +4,8 @@ This repo stores all of my projects and labs for my past and currents college co
 # Courses in Progress :books:
 ## Operating Systems Programming | CSC 305
 :black_small_square: [Lab 1](https://github.com/giannagalard/CSC-Courses/tree/main/Operating%20Systems%20Programming/lab%201)    
-:black_small_square: [Lab 2](https://github.com/giannagalard/CSC-Courses/tree/main/Operating%20Systems%20Programming/lab%202)
+:black_small_square: [Lab 2](https://github.com/giannagalard/CSC-Courses/tree/main/Operating%20Systems%20Programming/lab%202)  
+:black_small_square: [Lab 3](https://github.com/giannagalard/CSC-Courses/tree/main/Operating%20Systems%20Programming/lab%203)
 ## Object-Oriented Software Design | CSC 330
 :black_small_square: [Julian Calendar](https://github.com/giannagalard/CSC-Courses/blob/main/Object-Oriented%20Software%20Design/Julian%20Calendar.java)  
 :black_small_square: [Lotto Quick Picker](https://github.com/giannagalard/CSC-Courses/blob/main/Object-Oriented%20Software%20Design/Lotto%20Quick%20Picker.java)  
