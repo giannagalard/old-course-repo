@@ -36,7 +36,7 @@ for(i = 0; i < totalProcess; i++)
           {   
             processSize[i][1] = 1;
             memorySize[j][1] = 1;
-            cout<<"\nProcess "<<"["<<i+1<<"]"<<"Allocated to Memory Block: "<<j+1;
+            cout<<"\nProcess "<<"["<<i+1<<"]"<<" Allocated to Memory Block: "<<j+1;
             break;
           }
         j++;
@@ -46,7 +46,7 @@ for(i = 0; i < totalMemory; i++)
   {
     if(processSize[i][1] == 0)
     {
-      cout<<"\nProcess "<<"["<<i+1<<"]"<<"Unallocated";
+      cout<<"\nProcess "<<"["<<i+1<<"]"<<" Unallocated";
     }
   }
 cout<<"\n";
