@@ -10,7 +10,7 @@ int i, j, totalProcess = 0, totalMemory = 0;
 cout<<"\nNext Fit:\n";
 cout<<"\nEnter the Total Number of Processes: ";
 cin>>totalProcess;
-cout<<"\nEnter no. of memory partitions: ";
+cout<<"\nEnter number of memory partitions: ";
 cin>>totalMemory;
 
 cout<<"\nEnter the Size of Each Process\n";
