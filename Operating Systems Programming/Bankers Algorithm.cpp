@@ -33,3 +33,38 @@ int i, j, k;
     {
         x[k] = 0;
     }
+
+        int need[processNum][resources];
+    for (i = 0; i < processNum; i++)
+    {
+        for (j = 0; j < resources; j++)
+            need[i][j] = max[i][j] - allocation[i][j];
+    }
+    int y = 0;
+    for (k = 0; k < 5; k++)
+    {
+        for (i = 0; i < processNum; i++)
+        {
+            if (x[i] == 0)
+            {
+
+                int flag = 0;
+                for (j = 0; j < resources; j++)
+                {
+                    if (need[i][j] > available[j])
+                    {
+                        flag = 1;
+                        break;
+                    }
+                }
+
+                if (flag == 0)
+                {
+                    ans[index++] = i;
+                    for (y = 0; y < resources; y++)
+                        available[y] += allocation[i][y];
+                    x[i] = 1;
+                }
+            }
+        }
+    }
