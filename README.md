@@ -5,7 +5,7 @@ This repo stores all of my projects and labs for my past and currents college co
 ## Operating Systems Programming | CSC 305/332  
 :black_small_square: [Lab 1](https://github.com/giannagalard/CSC-Courses/tree/main/Operating%20Systems%20Programming/lab%201)    
 :black_small_square: [Lab 2](https://github.com/giannagalard/CSC-Courses/tree/main/Operating%20Systems%20Programming/lab%202)  
-:black_small_square: [Lab 3](https://github.com/giannagalard/CSC-Courses/tree/main/Operating%20Systems%20Programming/lab%203)
+:black_small_square: [Lab 3](https://github.com/giannagalard/CSC-Courses/tree/main/Operating%20Systems%20Programming/lab%203)  
 :black_small_square: [Bankers Algorithm](https://github.com/giannagalard/CSC-Courses/blob/main/Operating%20Systems%20Programming/Bankers%20Algorithm.cpp)   
 ## Object-Oriented Software Design | CSC 330
 ▪️ [Drunkard Walker](https://github.com/giannagalard/CSC-Courses/tree/main/Object-Oriented%20Software%20Design/Drunkard%20Walker)  
