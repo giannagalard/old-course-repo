@@ -11,7 +11,7 @@ int main()
 
     // available matrix
     int available[3] = {1, 5, 3};
-    
+
     // max matrix
     int max[5][3] = {{9, 1, 7},  // P0
                      {5, 3, 5},  // P1
@@ -26,15 +26,14 @@ int main()
                             {8, 7, 7},  // P3
                             {0, 0, 3}}; // P4
 
-int i, j, k;
+    int i, j, k;
 
     int ans[processNum], x[processNum], index = 0;
     for (k = 0; k < processNum; k++)
     {
         x[k] = 0;
     }
-
-        int need[processNum][resources];
+    int need[processNum][resources];
     for (i = 0; i < processNum; i++)
     {
         for (j = 0; j < resources; j++)
@@ -68,8 +67,8 @@ int i, j, k;
             }
         }
     }
-    
-        cout << "---------------------------\n";
+
+    cout << "---------------------------\n";
     cout << "\tTHE SAFE SEQUENCE IS\t" << endl;
     for (i = 0; i < processNum - 1; i++)
         cout << " P" << ans[i] << " ->";
