@@ -26,3 +26,10 @@ int main()
                             {8, 7, 7},  // P3
                             {0, 0, 3}}; // P4
 
+int i, j, k;
+
+    int ans[processNum], x[processNum], index = 0;
+    for (k = 0; k < processNum; k++)
+    {
+        x[k] = 0;
+    }
