@@ -68,3 +68,13 @@ int i, j, k;
             }
         }
     }
+    
+        cout << "---------------------------\n";
+    cout << "\tTHE SAFE SEQUENCE IS\t" << endl;
+    for (i = 0; i < processNum - 1; i++)
+        cout << " P" << ans[i] << " ->";
+    cout << " P" << ans[processNum - 1] << endl;
+    cout << "---------------------------\n";
+
+    return (0);
+}
