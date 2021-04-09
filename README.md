@@ -2,7 +2,8 @@
 
 This repo stores all of my projects and labs for my past and currents college courses ! c:
 # Courses in Progress :books:
-## Operating Systems Programming | CSC 305/332
+## Operating Systems Programming | CSC 305/332  
+:black_small_square: [Bankers Algorithm](https://github.com/giannagalard/CSC-Courses/blob/main/Operating%20Systems%20Programming/Bankers%20Algorithm.cpp)  
 :black_small_square: [Lab 1](https://github.com/giannagalard/CSC-Courses/tree/main/Operating%20Systems%20Programming/lab%201)    
 :black_small_square: [Lab 2](https://github.com/giannagalard/CSC-Courses/tree/main/Operating%20Systems%20Programming/lab%202)  
 :black_small_square: [Lab 3](https://github.com/giannagalard/CSC-Courses/tree/main/Operating%20Systems%20Programming/lab%203)
