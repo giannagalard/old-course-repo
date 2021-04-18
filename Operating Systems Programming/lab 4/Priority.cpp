@@ -43,7 +43,7 @@ int main() {
     proc[i].burstX = proc[i].burstTime;
     cout << "Enter the Priority for " << proc[i].procId << ": ";
     cin >> proc[i].pr;
-    cout << endl;
+    cout << " " << endl;
   }
 
   // sorting based on arrival time
