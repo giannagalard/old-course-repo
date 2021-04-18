@@ -1,35 +1,35 @@
  #include <iostream>
  using namespace std;
 
-void waitingT(int processes[], int j, int bt[], int wt[])
+void waitingT(int processes[], int j, int bTime[], int wTime[]) 
   {
-    wt[0]=0;
+    wTime[0]=0;
 
     for(int i=1; i<j; i++)
-      wt[i]=bt[i-1]+wt[i-1];
+      wTime[i]=bTime[i-1]+wTime[i-1];
 
   }
 
-void turnAroundTime(int processes[], int j, int bt[], int wt[], int tat[])
+void turnAroundTime(int processes[], int j, int bTime[], int wTime[], int tat[])
   {
     for(int i=0;i<j;i++)
-      tat[i]=bt[i]+ wt[i];
+      tat[i]=bTime[i]+ wTime[i];
   }
 
-void firstComeFirstServe(int processes[], int j, int bt[] )
+void firstComeFirstServe(int processes[], int j, int bTime[] )
   {
-    int wt[j], tat[j], totalWait = 0, totalTAT = 0;
+    int wTime[j], tat[j], totalWait = 0, totalTAT = 0;
 
-    waitingT(processes,j,bt,wt);
-    turnAroundTime(processes, j, bt, wt, tat);
+    waitingT(processes,j,bTime,wTime);
+    turnAroundTime(processes, j, bTime, wTime, tat);
 
     cout << "Processes " << "Burst Time " << "Waiting Time " << "Turn Around Time" << endl;
 
     for(int i=0; i<j; i++)
       {
-        totalWait = totalWait + wt[i];
+        totalWait = totalWait + wTime[i];
         totalTAT = totalTAT + tat[i];
-        cout << "\t" << i+1 << "\t  " << bt[i] << "\t  " << wt[i] << "\t\t" << tat[i] << endl;
+        cout << "\t" << i+1 << "\t  " << bTime[i] << "\t  " << wTime[i] << "\t\t" << tat[i] << endl;
       }
 
     cout << "Average Waiting Time = " << (float)totalWait/(float)j;
@@ -60,4 +60,5 @@ void firstComeFirstServe(int processes[], int j, int bt[] )
         cout << "----------------------------------------" << endl;
         cout << "   FIRST COME FIRST SERVE SCHEDULING" << endl;
         firstComeFirstServe(processes, j, burstTime);
+      }
                                                                                              
