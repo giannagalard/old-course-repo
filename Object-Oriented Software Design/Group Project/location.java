@@ -92,6 +92,7 @@ class StateData {
 		this.zipcode = zipcode;
 	}
 }
+
 // line 104 - 107 search through whatever parameters u want
 class AccessibleStateDataAPI {
 	public static ArrayList<StateData> STATE_DATA = new ArrayList<>();
