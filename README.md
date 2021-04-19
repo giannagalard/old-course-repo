@@ -10,7 +10,7 @@ This repo stores all of my projects and labs for my past and currents college co
 :black_small_square: [Bankers Algorithm](https://github.com/giannagalard/CSC-Courses/blob/main/Operating%20Systems%20Programming/Bankers%20Algorithm.cpp)   
 ## Object-Oriented Software Design | CSC 330
 ▪️ [Drunkard Walker](https://github.com/giannagalard/CSC-Courses/tree/main/Object-Oriented%20Software%20Design/Drunkard%20Walker)  
-:black_small_square:[Group Project](https://github.com/giannagalard/CSC-Courses/tree/main/Object-Oriented%20Software%20Design/Group%20Project)  
+:black_small_square: [Group Project](https://github.com/giannagalard/CSC-Courses/tree/main/Object-Oriented%20Software%20Design/Group%20Project)  
 :black_small_square: [Julian Calendar](https://github.com/giannagalard/CSC-Courses/blob/main/Object-Oriented%20Software%20Design/Julian%20Calendar.java)  
 :black_small_square: [Lotto Quick Picker](https://github.com/giannagalard/CSC-Courses/blob/main/Object-Oriented%20Software%20Design/Lotto%20Quick%20Picker.java)  
 :black_small_square: [Numeric Analyzer](https://github.com/giannagalard/CSC-Courses/blob/main/Object-Oriented%20Software%20Design/Numeric%20Analyzer.java)  
