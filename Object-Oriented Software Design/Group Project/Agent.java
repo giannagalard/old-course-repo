@@ -1,9 +1,6 @@
 package realty;
 
 import javax.swing.*;
-
-import realty.AgentData.AccessAgentData;
-
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.IOException;
@@ -11,109 +8,110 @@ import java.io.InputStreamReader;
 import java.util.*;
 import java.util.stream.Collectors;
 
-public class Agent {
 
-  public static void main(String[] args) {
-    List < AgentData > listofAgents = AccessAgentData.findAgentDataByID("1");
-    if (!listofAgents.isEmpty()) {
-      AgentData FirstName = listofAgents.get(0);
-      JOptionPane.showMessageDialog(null, "ID: " + FirstName.getID() + "First Name: " + FirstName.getFirstName() +
-        "Second Name: " + FirstName.getSecondName());
-    } else {
-      JOptionPane.showMessageDialog(null, "Not Found");
-    }
-  }
+public class Agent {
+	
+	public static void main(String[] args) {
+		int i = 1;
+		List<AgentData> listOfAgents = AccessibleAgentDataAPI.findAgentDataByLastName("sussy");
+		String values = "";
+		for(AgentData agent: listOfAgents) {
+			values += "Agent " + i + ": " + agent.getFirstName() + " " + agent.getLastName() + "\n";
+			i++;
+		}
+		JOptionPane.showMessageDialog(null, values);
+	}
 
 }
 
 // getters and setters
 class AgentData {
-  private String id;
-  private String FirstName;
-  private String SecondName;
+	private String id;
+	private String firstName;
+	private String lastName;
 
-  public AgentData(String id, String FirstName, String SecondName) {
-    this.id = id;
-    this.FirstName = FirstName;
-    this.SecondName = SecondName;
-  }
+	public AgentData(String id, String firstName, String lastName) {
+		this.id = id;
+		this.firstName = firstName;
+		this.lastName = lastName;
+	}
 
-  // Getters
-  public String getID() {
-    return id;
-  }
+	// getters
+	public String getID() {
+		return id;
+	}
 
-  public String getFirstName() {
-    return FirstName;
-  }
+	public String getFirstName() {
+		return firstName;
+	}
 
-  public String getSecondName() {
-    return SecondName;
-  }
+	public String getLastName() {
+		return lastName;	
+	}
 
-  // Setters
-  public void setID(String id) {
-    this.id = id;
-  }
+	// setters
+	public void setID(String id) {
+		this.id = id;
+	}
 
-  public void setFirstName(String FirstName) {
-    this.FirstName = FirstName;
-  }
+	public void setFirstName(String firstName) {
+		this.firstName = firstName;
+	}
 
-  public void setSecondName(String SecondName) {
-    this.SecondName = SecondName;
-  }
+	public void setSecondName(String lastName) {
+		this.lastName = lastName;
+	}
+}
 
-  static class AccessAgentData {
-    public static ArrayList < realty.AgentData > AgentData = new ArrayList < > ();
-    public static String AGENT_DATA_FILE_PATH = "src\\realty\\agent.csv";
+class AccessibleAgentDataAPI {	
+	public static ArrayList <AgentData> AgentData = new ArrayList<>();
+	public static String AGENT_DATA_FILE_PATH = "src\\realty\\agent.csv";
+	
+	public static List <AgentData> findAgentDataByID(String id) {
+		return AccessibleAgentDataAPI.getAgentData().stream()	
+				.filter(AgentData -> AgentData.getID().equalsIgnoreCase(id))
+				.collect(Collectors.toList());
+	}
 
-    public static List < AgentData > findAgentDataByID(String id) {
-      return AccessAgentData.getAgentData().stream().filter(AgentData -> AgentData.getID().equalsIgnoreCase(id))
-        .collect(Collectors.toList());
-    }
+	public static List <AgentData> findAgentDataByFirstName(String firstName) {
+			
+		return AccessibleAgentDataAPI.getAgentData().stream()					
+				.filter(AgentData -> AgentData.getFirstName().equalsIgnoreCase(firstName))					
+				.collect(Collectors.toList());		
+	}
+	
+	public static List <AgentData> findAgentDataByLastName(String lastName) {		
+		return AccessibleAgentDataAPI.getAgentData().stream()			
+				.filter(AgentData -> AgentData.getLastName().equalsIgnoreCase(lastName))				
+				.collect(Collectors.toList());	
+	}
 
-    public static List < AgentData > findAgentDataByFirstName(String FirstName) {
-      return AccessAgentData.getAgentData().stream()
-        .filter(AgentData -> AgentData.getFirstName().equalsIgnoreCase(FirstName))
-        .collect(Collectors.toList());
-    }
-
-    public static List < AgentData > findAgentDataBySecondName(String SecondName) {
-      return AccessAgentData.getAgentData().stream()
-        .filter(AgentData -> AgentData.getSecondName().equalsIgnoreCase(SecondName))
-        .collect(Collectors.toList());
-    }
-
-    private static ArrayList < AgentData > getAgentData() {
-      String ID = " ";
-      String FirstName = " ";
-      String SecondName = " ";
-      ArrayList < AgentData > list = new ArrayList < > ();
-      try {
-        Scanner x = new Scanner(new File(AccessAgentData.AGENT_DATA_FILE_PATH));
-        String nextLine;
-        while (x.hasNextLine()) {
-          nextLine = x.nextLine();
-          if (nextLine == " ") {
-            break;
-          }
-
-          StringTokenizer tokenNextLine = new StringTokenizer(nextLine, ",");
-          ID = tokenNextLine.nextToken();
-          FirstName = tokenNextLine.nextToken();
-          SecondName = tokenNextLine.nextToken();
-
-          list.add(new AgentData(ID, FirstName, SecondName));
-        }
-        AgentData = list;
-      } catch (Exception e) {
-        System.out.println("Thats an error");
-        e.printStackTrace();
-      }
-
-      return AgentData;
-    }
-
-  }
+	private static ArrayList <AgentData> getAgentData() {	
+		String id = " ";		
+		String firstName = " ";	
+		String lastName = " ";
+		ArrayList <AgentData> list = new ArrayList<>();
+		try {		
+			Scanner x = new Scanner(new File(AccessibleAgentDataAPI.AGENT_DATA_FILE_PATH));			
+			String nextLine;		
+			while (x.hasNextLine()) {	
+				nextLine = x.nextLine();		
+				if (nextLine == " ") {	
+					break;		
+				}			
+				StringTokenizer tokenNextLine = new StringTokenizer(nextLine, ",");          	
+				id = tokenNextLine.nextToken();    			
+				firstName = tokenNextLine.nextToken();   							
+				lastName = tokenNextLine.nextToken();					
+				list.add(new AgentData(id, firstName, lastName));				
+			} 				
+			AgentData = list;			
+		} 			
+		catch (Exception e) {			
+			System.out.println("Thats an error");				
+			e.printStackTrace();		
+			
+		}
+		return AgentData;		
+	}
 }
