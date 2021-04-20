@@ -11,7 +11,7 @@ import java.io.InputStreamReader;
 import java.util.*;
 import java.util.stream.Collectors;
 
-public class agentfinder {
+public class Agent {
 
   public static void main(String[] args) {
     List < AgentData > listofAgents = AccessAgentData.findAgentDataByID("1");
