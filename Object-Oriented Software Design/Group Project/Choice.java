@@ -44,8 +44,7 @@ public class Choice extends JFrame{
 			}
 			else if(e.getSource() == agentButton) {
 				setVisible(false);
-//				new SearchAgent();
-				System.out.println("Welcome!");
+				new SearchAgent();
 			}
 		}
 	}
