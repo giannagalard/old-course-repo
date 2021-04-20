@@ -72,35 +72,50 @@ public class SearchLocation extends JFrame{
 			if(e.getSource() == addressButton) {
 				List<StateData> listOfStates = AccessibleStateDataAPI.findStateDataByAddress(address);
 				for(StateData theState: listOfStates) {
-					values += "Address: " + theState.getAddress() + " " + theState.getCity() + ", " + theState.getState() + ", " + theState.getZipcode() 
+					values += "Address: " + theState.getAddress() + ", " + theState.getCity() + ", " + theState.getState() + ", " + theState.getZipcode() 
 					+ "\nHome Value: " + theState.getHomeValue() 
 					+ "\nRent Value: " + theState.getRentValue() 
 					+ "\nSqft Lot: " + theState.getSqft() 
 					+ "\nNearby School: " + theState.getSchool() + "\n\n";
 				}
-				JOptionPane.showMessageDialog(null, values);
+				if (values == "") {
+					JOptionPane.showMessageDialog(null, "Not Found!");
+				}
+				else {
+					JOptionPane.showMessageDialog(null, values);
+				}
 			}
 			else if(e.getSource() == cityButton) {
 				List<StateData> listOfStates = AccessibleStateDataAPI.findStateDataByCity(city);
 				for(StateData theState: listOfStates) {
-					values += "Address: " + theState.getAddress() + " " + theState.getCity() + ", " + theState.getState() + ", " + theState.getZipcode() 
+					values += "Address: " + theState.getAddress() + ", " + theState.getCity() + ", " + theState.getState() + ", " + theState.getZipcode() 
 					+ "\nHome Value: " + theState.getHomeValue() 
 					+ "\nRent Value: " + theState.getRentValue() 
 					+ "\nSqft Lot: " + theState.getSqft() 
 					+ "\nNearby School: " + theState.getSchool() + "\n\n";
 				}
-				JOptionPane.showMessageDialog(null, values);
+				if (values == "") {
+					JOptionPane.showMessageDialog(null, "Not Found!");
+				}
+				else {
+					JOptionPane.showMessageDialog(null, values);
+				}
 			}
 			else if(e.getSource() == stateButton) {
 				List<StateData> listOfStates = AccessibleStateDataAPI.findStateDataByState(state);
 				for(StateData theState: listOfStates) {
-					values += "Address: " + theState.getAddress() + " " + theState.getCity() + ", " + theState.getState() + ", " + theState.getZipcode() 
+					values += "Address: " + theState.getAddress() + ", " + theState.getCity() + ", " + theState.getState() + ", " + theState.getZipcode() 
 					+ "\nHome Value: " + theState.getHomeValue() 
 					+ "\nRent Value: " + theState.getRentValue() 
 					+ "\nSqft Lot: " + theState.getSqft() 
 					+ "\nNearby School: " + theState.getSchool() + "\n\n";
 				}
-				JOptionPane.showMessageDialog(null, values);
+				if (values == "") {
+					JOptionPane.showMessageDialog(null, "Not Found!");
+				}
+				else {
+					JOptionPane.showMessageDialog(null, values);
+				}
 			}
 			else if(e.getSource() == zipcodeButton) {
 				List<StateData> listOfStates = AccessibleStateDataAPI.findStateDataByZipcode(zipcode);
@@ -111,7 +126,12 @@ public class SearchLocation extends JFrame{
 					+ "\nSqft Lot: " + theState.getSqft() 
 					+ "\nNearby School: " + theState.getSchool() + "\n\n";
 				}
-				JOptionPane.showMessageDialog(null, values);
+				if (values == "") {
+					JOptionPane.showMessageDialog(null, "Not Found!");
+				}
+				else {
+					JOptionPane.showMessageDialog(null, values);
+				}
 			}			
 		}
 	}
