@@ -59,30 +59,24 @@ public class Login extends JFrame implements ActionListener {
 	@Override // this is the login / register ( basically they can either login with admin
 				// credentials or make a new account and login instantly lol )
 	public void actionPerformed(ActionEvent ae) {
-		if (newInstance == 1)
-		{
 			File db = new File("db.csv");
 			try {
-				db.createNewFile();
+				if(!db.exists()) {
+					db.createNewFile();
+					BufferedWriter csvW1;
+					csvW1 = new BufferedWriter(new FileWriter("db.csv", true));
+					csvW1.write("admin");
+					csvW1.write("password,");
+					csvW1.close();
+				}
 			} catch (IOException e) {
 				e.printStackTrace();
 			}
-			newInstance=0;
-		}
+
+		
 		String username = usernameText.getText();
 		String password = passwordText.getText();
 		BufferedReader csvR;
-		BufferedWriter csvW1;
-		try {
-			csvW1 = new BufferedWriter(new FileWriter("db.csv"));
-			csvW1.write("admin");
-			csvW1.write("password,");
-			csvW1.close();
-		} catch (IOException e3) {
-			// TODO Auto-generated catch block
-			e3.printStackTrace();
-		}
-		
 		
 		try {		
 			csvR = new BufferedReader(new FileReader("db.csv"));
@@ -141,7 +135,7 @@ public class Login extends JFrame implements ActionListener {
 			String yn = ""; //get yes/no from user
 			if(yn == "Y" || yn == "y")
 			{
-				File db = new File("db.csv");
+				db = new File("db.csv");
 				try {
 					db.createNewFile();
 				} catch (IOException e2) {
