@@ -1,8 +1,19 @@
 package realty;
 
 import java.awt.*;
+import java.io.File;
 import java.awt.event.*;
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.util.Arrays;
+import java.util.Scanner;
+
 import javax.swing.*;
+import javax.xml.crypto.Data;
 
 public class Login extends JFrame implements ActionListener {
 	JPanel panel;
@@ -38,6 +49,8 @@ public class Login extends JFrame implements ActionListener {
 		setVisible(true);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	}
+	
+	int newInstance = 1;
 
 	public static void main(String[] args) {
 		new Login();
@@ -46,20 +59,117 @@ public class Login extends JFrame implements ActionListener {
 	@Override // this is the login / register ( basically they can either login with admin
 				// credentials or make a new account and login instantly lol )
 	public void actionPerformed(ActionEvent ae) {
+		if (newInstance == 1)
+		{
+			File db = new File("db.csv");
+			try {
+				db.createNewFile();
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+			newInstance=0;
+		}
 		String username = usernameText.getText();
 		String password = passwordText.getText();
-		if (username.trim().equals("admin") && password.trim().equals("admin")) {
-			setVisible(false);
-			System.out.println("Welcome back " + username + "!");
-			new Choice();
+		BufferedReader csvR;
+		BufferedWriter csvW1;
+		try {
+			csvW1 = new BufferedWriter(new FileWriter("db.csv"));
+			csvW1.write("admin");
+			csvW1.write("password,");
+			csvW1.close();
+		} catch (IOException e3) {
+			// TODO Auto-generated catch block
+			e3.printStackTrace();
 		}
-		else if (username == "" || password == "") {
-			System.out.println("Missing Value!");
+		
+		
+		try {		
+			csvR = new BufferedReader(new FileReader("db.csv"));
+			String row = "";
+			String[] data = {};
+			
+			while(true){
+				//System.out.println(data.length);
+				while ((row = csvR.readLine()) != null) {
+					//System.out.println(row);
+					//System.out.println(Arrays.toString(data));
+					data = row.split(",");
+				}
+				//csvR.close();
+				
+				//System.out.println(Arrays.toString(data));
+				//System.out.println(Arrays.toString(data).contains(password));
+				
+				if (Arrays.toString(data).contains(username) && Arrays.toString(data).contains(password)) {
+				setVisible(false);
+				System.out.println("Welcome back " + username + "!");
+				new Choice();
+				break;
+			}
+			else {
+				setVisible(false);
+				System.out.println("Would you like to register? (Y/N) then enter.");
+				Scanner sc = new Scanner(System.in);
+				String yn = sc.nextLine(); //get yes/no from user
+				if(yn.contains("Y")|| yn.contains("y"))
+				{
+					BufferedWriter csvW = new BufferedWriter(new FileWriter("db.csv",true));
+
+					csvW.write(username);
+					csvW.write(password);
+					csvW.write(",");
+					csvW.flush();
+					sc.close();
+					csvW.close();
+					
+				}
+				else
+				{
+					System.out.println("Okay bye then.");
+					sc.close();
+					return;
+				}
+				//System.out.println("Welcome back " + usernameText.getText() + "!");
+				//System.out.println("WE GOT PAST CHOICE");
+			}	
+			}
+
+		} catch (FileNotFoundException e) {
+			System.out.println("File not found.");
+			System.out.println("Would you like to register and create a new file? Y/N");
+			String yn = ""; //get yes/no from user
+			if(yn == "Y" || yn == "y")
+			{
+				File db = new File("db.csv");
+				try {
+					db.createNewFile();
+				} catch (IOException e2) {
+					e.printStackTrace();
+				}
+				
+				FileWriter csvW;
+				try {
+					csvW = new FileWriter("db.csv");
+					Scanner sc = new Scanner(System.in);
+
+					username+=",";
+					password+="\n";
+					csvW.append(username);
+					csvW.append(password);
+					csvW.flush();
+					sc.close();
+					csvW.close();
+				} catch (IOException e1) {
+					System.out.println("big yike :/");
+					e1.printStackTrace();
+				}
+			}
+			
+		} catch (Throwable e) {
+			System.out.println("File read failed.");
+			e.printStackTrace();
 		}
-		else {
-			setVisible(false);
-			System.out.println("Welcome back " + usernameText.getText() + "!");
-			new Choice();
-		}
+
 	}
 }
