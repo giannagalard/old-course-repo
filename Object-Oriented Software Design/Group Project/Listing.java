@@ -2,147 +2,137 @@ package realty;
 
 import java.awt.*;
 import java.awt.event.*;
-import java.util.List;
-
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
 import javax.swing.*;
 
-public class SearchLocation extends JFrame{
+public class Listing extends JFrame implements ActionListener {
 
-	JPanel panel;
-	JLabel address, city, state, zipcode, text;
-	JButton addressButton, cityButton, stateButton, zipcodeButton;
-	JTextField addressText, cityText, stateText, zipcodeText;
+	JPanel panel, buttonPanel, errorPanel, successPanel;
+	JLabel address, city, state, zipcode, value, sqft, schools, successMsg;
+	JTextField addressText, cityText, stateText, zipcodeText, valueText,sqftText, schoolsText;
+	JButton submitButton;
 	
-	public SearchLocation() {	
+	public Listing() { //create UI
+		
 		address = new JLabel();
-		address.setText("     Address:"); // (must be 5 spaces )
+		address.setText("     Address:");
 		addressText = new JTextField();
+		
 		city = new JLabel();
-		city.setText("     City:"); // (must be 5 spaces )
+		city.setText("     City:"); 
 		cityText = new JTextField();
+		
 		state = new JLabel();
-		state.setText("     State:"); // (must be 5 spaces )
+		state.setText("     State:"); 
 		stateText = new JTextField();
+		
 		zipcode = new JLabel();
-		zipcode.setText("     Zipcode:"); // (must be 5 spaces )
+		zipcode.setText("     Zipcode:");
 		zipcodeText = new JTextField();
 		
-		addressButton = new JButton("Search");
-		cityButton = new JButton("Search");
-		stateButton = new JButton("Search");
-		zipcodeButton = new JButton("Search");
-
-		panel = new JPanel(new GridLayout(5, 1));
-		panel.add(address);
-		panel.add(addressText);
-		panel.add(addressButton);
-		panel.add(city);
-		panel.add(cityText);
-		panel.add(cityButton);
-		panel.add(state);
-		panel.add(stateText);
-		panel.add(stateButton);
-		panel.add(zipcode);
-		panel.add(zipcodeText);
-		panel.add(zipcodeButton);
-		text = new JLabel();
+		value = new JLabel();
+		value.setText("     House Value:");
+		valueText = new JTextField();
 		
-		ClickListener click = new ClickListener();
-		addressButton.addActionListener(click);
-		cityButton.addActionListener(click);
-		stateButton.addActionListener(click);
-		zipcodeButton.addActionListener(click);
-
-		setTitle("Search for houses:");
-		setSize(450, 200); // setting the size of the window
+		sqft = new JLabel();
+		sqft.setText("     Sqft:"); 
+		sqftText = new JTextField();
+		
+		schools = new JLabel();
+		schools.setText("     Schools Nearby:"); 
+		schoolsText = new JTextField();
+		
+		successMsg = new JLabel();
+		successMsg.setText("     Listing added successfully!");
+		
+		submitButton = new JButton("Submit");
+		submitButton.addActionListener(this);
+		
+		panel = new JPanel(new GridLayout(8, 1));
+		panel.add(address); 
+		panel.add(addressText); 
+		panel.add(city); 
+		panel.add(cityText); 
+		panel.add(state); 
+		panel.add(stateText); 
+		panel.add(zipcode); 
+		panel.add(zipcodeText); 
+		panel.add(value); 
+		panel.add(valueText); 
+		panel.add(sqft); 
+		panel.add(sqftText); 
+		panel.add(schools); 
+		panel.add(schoolsText);
+		
+		buttonPanel = new JPanel(new GridLayout(1,1));
+		buttonPanel.add(submitButton);
+		
+		
+		setTitle("Create Your Listing");
+		add(panel, BorderLayout.CENTER);
+		add(buttonPanel, BorderLayout.PAGE_END);
+		setSize(400, 300); // setting the size of the window
 		setVisible(true);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		add(panel, BorderLayout.CENTER);
-	}
-	
-	public class ClickListener implements ActionListener {
-		@Override
-		public void actionPerformed(ActionEvent e) {
-			String address = addressText.getText();
-			String city = cityText.getText();
-			String state = stateText.getText();
-			String zipcode = zipcodeText.getText();
-			String values = "";
-			
-			if(e.getSource() == addressButton) {
-				List<StateData> listOfStates = AccessibleStateDataAPI.findStateDataByAddress(address);
-				for(StateData theState: listOfStates) {
-					values += "Address: " + theState.getAddress() + ", " + theState.getCity() + ", " + theState.getState() + ", " + theState.getZipcode() 
-					+ "\nHome Value: " + theState.getHomeValue() 
-					+ "\nRent Value: " + theState.getRentValue() 
-					+ "\nSqft Lot: " + theState.getSqft() 
-					+ "\nNearby School: " + theState.getSchool() + "\n\n";
-				}
-				if (values == "") {
-					JOptionPane.showMessageDialog(null, "Not Found!");
-				}
-				else {
-					JOptionPane.showMessageDialog(null, values);
-				}
-			}
-			else if(e.getSource() == cityButton) {
-				List<StateData> listOfStates = AccessibleStateDataAPI.findStateDataByCity(city);
-				for(StateData theState: listOfStates) {
-					values += "Address: " + theState.getAddress() + ", " + theState.getCity() + ", " + theState.getState() + ", " + theState.getZipcode() 
-					+ "\nHome Value: " + theState.getHomeValue() 
-					+ "\nRent Value: " + theState.getRentValue() 
-					+ "\nSqft Lot: " + theState.getSqft() 
-					+ "\nNearby School: " + theState.getSchool() + "\n\n";
-				}
-				if (values == "") {
-					JOptionPane.showMessageDialog(null, "Not Found!");
-				}
-				else {
-					JOptionPane.showMessageDialog(null, values);
-				}
-			}
-			else if(e.getSource() == stateButton) {
-				List<StateData> listOfStates = AccessibleStateDataAPI.findStateDataByState(state);
-				for(StateData theState: listOfStates) {
-					values += "Address: " + theState.getAddress() + ", " + theState.getCity() + ", " + theState.getState() + ", " + theState.getZipcode() 
-					+ "\nHome Value: " + theState.getHomeValue() 
-					+ "\nRent Value: " + theState.getRentValue() 
-					+ "\nSqft Lot: " + theState.getSqft() 
-					+ "\nNearby School: " + theState.getSchool() + "\n\n";
-				}
-				if (values == "") {
-					JOptionPane.showMessageDialog(null, "Not Found!");
-				}
-				else {
-					JOptionPane.showMessageDialog(null, values);
-				}
-			}
-			else if(e.getSource() == zipcodeButton) {
-				List<StateData> listOfStates = AccessibleStateDataAPI.findStateDataByZipcode(zipcode);
-				for(StateData theState: listOfStates) {
-					values += "Address: " + theState.getAddress() + ", " + theState.getCity() + ", " + theState.getState() + ", " + theState.getZipcode() 
-					+ "\nHome Value: " + theState.getHomeValue() 
-					+ "\nRent Value: " + theState.getRentValue() 
-					+ "\nSqft Lot: " + theState.getSqft() 
-					+ "\nNearby School: " + theState.getSchool() + "\n\n";
-				}
-				if (values == "") {
-					JOptionPane.showMessageDialog(null, "Not Found!");
-				}
-				else {
-					JOptionPane.showMessageDialog(null, values);
-				}
-			}			
-		}
+
 	}
 	
 	public static void main(String[] args) {
-		new SearchLocation();
+		new Listing();
  	}
 	
-//	List<StateData> listOfStates = AccessibleStateDataAPI.findStateDataByStreet("forest ave");
-//	StateData state = listOfStates.get(0);
-//	JOptionPane.showMessageDialog(null,
-//			"Address: " + state.getStreetNum() + " " + state.getStreet() + ", City: " + state.getCity()
-//					+ ", State: " + state.getState() + ", Zipcode: " + state.getZipcode());
+	public void actionPerformed(ActionEvent ae) {
+
+		String id = getLastID();
+		String address = addressText.getText();
+		String city = cityText.getText();
+		String state = stateText.getText();
+		String zipcode = zipcodeText.getText();
+		String value = valueText.getText();
+		String sqft = sqftText.getText();
+		String schools = schoolsText.getText();
+		
+		//make sure that all fields are filled 
+		if(address.isEmpty() || city.isEmpty() || state.isEmpty() || zipcode.isEmpty() || value.isEmpty() || sqft.isEmpty() || schools.isEmpty()) {
+			
+			//show error message if fields are empty
+			errorPanel = new JPanel();
+			JOptionPane.showMessageDialog(errorPanel, "Please fill out all the fields!", "Error", JOptionPane.ERROR_MESSAGE);
+		}
+		else {
+			try {
+				//send the input from text fields into the file.csv file
+				BufferedWriter csvOutput = new BufferedWriter(new FileWriter("src\\realty\\file.csv", true), ',');
+				csvOutput.write("\n"+id+","+address+","+city+","+state+","+zipcode+","+value+","+sqft+","+schools);
+				csvOutput.close();
+				
+				//show success message if the listing was added successfully
+				successPanel = new JPanel();
+				JOptionPane.showMessageDialog(successPanel, "Listing #"+id+ " was added successfully!", "Success", JOptionPane.INFORMATION_MESSAGE);
+				
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+		}
+		
+	}
+
+	private String getLastID() { //get an id for the new listing
+		
+		int lineCount = 0;
+	      try (BufferedReader reader = new BufferedReader(new FileReader("src\\realty\\file.csv"))) {
+	          //while there are lines to read, update the counter
+	    	  while (reader.readLine() != null) {
+	        	  lineCount++;
+	          }
+	      } catch (IOException e) {
+	          e.printStackTrace();
+	      }
+	      
+		return String.valueOf(lineCount);
+	}	
 }
