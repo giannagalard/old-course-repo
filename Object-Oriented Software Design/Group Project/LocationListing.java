@@ -9,14 +9,14 @@ import java.io.FileWriter;
 import java.io.IOException;
 import javax.swing.*;
 
-public class Listing extends JFrame implements ActionListener {
+public class LocationListing extends JFrame implements ActionListener {
 
 	JPanel panel, buttonPanel, errorPanel, successPanel;
 	JLabel address, city, state, zipcode, houseValue, rentValue, sqft, schools, successMsg;
 	JTextField addressText, cityText, stateText, zipcodeText, houseValueText, rentValueText, sqftText, schoolsText;
 	JButton submitButton;
 	
-	public Listing() { //create UI
+	public LocationListing() { //create UI
 		
 		address = new JLabel();
 		address.setText("     Address:");
@@ -88,7 +88,7 @@ public class Listing extends JFrame implements ActionListener {
 	}
 	
 	public static void main(String[] args) {
-		new Listing();
+		new LocationListing();
  	}
 	
 	public void actionPerformed(ActionEvent ae) {
