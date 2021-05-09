@@ -24,7 +24,6 @@
 
 using namespace std;
 
-
 struct process {
 	int p_id; //process id
 	int start_time, end_time, //measure time spent
@@ -66,7 +65,7 @@ int main() {
 			infile >> p[i].p_id >> p[i].arrival_time >> p[i].burst_time;
 			i++; // dude. 
 		}
-		p[i].p_id = i + 1; // if not included all processes are labeled as 50
+		p[i].p_id = i + 1; 
 	}
 		sort(p, p + x, compareArrivalTime);
 
@@ -74,7 +73,7 @@ int main() {
 		for (int i = 0; i < x; i++) { 
 			p[i].start_time = (i == 0) ? p[i].arrival_time : max(p[i - 1].end_time, p[i].arrival_time);
 			p[i].end_time = p[i].start_time + p[i].burst_time;
-			p[i].turnaround_time = p[i].end_time - p[i].arrival_time;
+			p[i].turnaround_time = p[i].end_time - p[i].arrival_time; 
 			p[i].waiting_time = p[i].turnaround_time - p[i].burst_time;
 			p[i].response_time = p[i].start_time - p[i].arrival_time;
 
@@ -90,7 +89,7 @@ int main() {
 		avg_rt = (float)total_rt / x;
 
 
-		cpu_efficiency = ((p[x - 1].end_time - total_idle) / (float)p[x - 1].end_time) * 100;
+		cpu_efficiency = ((p[x].end_time - total_idle) / p[x].end_time) * 100 ;
 
 		sort(p, p + x, compareProcessID);
 
@@ -106,13 +105,18 @@ int main() {
 		*/
 
 		cout << endl; // cute title UwU <3
-		cout << "\t\t:::::::::: ::::::::  :::::::::: ::::::::  " << endl;
-		cout << "\t\t:+:       :+:    :+: :+:       :+:    :+: " << endl;
-		cout << "\t\t+:+       +:+        +:+       +:+        " << endl;
-		cout << "\t\t:#::+::#  +#+        :#::+::#  +#++:++#++ " << endl;
-		cout << "\t\t+#+       +#+        +#+              +#+ " << endl;
-		cout << "\t\t#+#       #+#    #+# #+#       #+#    #+# " << endl;
-		cout << "\t\t###        ########  ###        ########  " << endl << endl << endl;
+		cout << ":::::::::: ::::::::  :::::::::: ::::::::  " << endl;
+		cout << ":+:       :+:    :+: :+:       :+:    :+: " << endl;
+		cout << "+:+       +:+        +:+       +:+        " << endl;
+		cout << ":#::+::#  +#+        :#::+::#  +#++:++#++ " << endl;
+		cout << "+#+       +#+        +#+              +#+ " << endl;
+		cout << "#+#       #+#    #+# #+#       #+#    #+# " << endl;
+		cout << "###        ########  ###        ########  " << endl << endl << endl;
+
+		cout << "Total Time required is " << total_tat << " time units" << endl;
+		cout << "Average turn around time is " << avg_tat << " time units" << endl;
+		cout << "Average waiting time is " << avg_wt << " time units" << endl;
+		cout << "CPU Efficiency is " << cpu_efficiency << "%" << endl << endl;
 
 		// this loop prints the output
 		for (int i = 0; i < x; i++) {
@@ -120,11 +124,4 @@ int main() {
 			cout << "Service time = " << p[i].burst_time << endl;
 			cout << "Turnaround time = " << p[i].turnaround_time << endl;
 		}
-		
-		cout << endl << endl; // blank seperator
-		cout << "Total Time required is " << total_wt << " time units" << endl;
-		cout << "Average waiting time is " << avg_wt << " time units" << endl;
-		cout << "CPU Efficiency is " << cpu_efficiency << "%" << endl;
 	}
-
-
