@@ -2,4 +2,5 @@
 ## Gianna Galard, Gabriel Khalfin, and Tyler Monis
 
 ### FCFS Sample Output:
-![fe4317156dcd47307e1b92b6e4ddc278](https://user-images.githubusercontent.com/80483712/117558477-cc351a00-b04b-11eb-8635-06e13f235ebf.png)
+![3bf8243d5b3f4e7d7f01bc984528e638](https://user-images.githubusercontent.com/80483712/117561600-33f85e80-b066-11eb-95fa-63511cc286ce.png)
+
