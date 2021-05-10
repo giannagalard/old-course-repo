@@ -43,13 +43,13 @@ int main() {
 	struct process p[50]; // 50 processes
 	int x;
 	int total_idle = 0,
-		total_rt = 0,
-		total_tat = 0,
-		total_wt = 0;
+	    total_rt = 0,
+	    total_tat = 0,
+	    total_wt = 0;
 	float avg_rt, // avg response time
-		avg_tat, // avg turn around time
-		avg_wt, // avg waiting time
-		cpu_efficiency; // when cpu isn't idle
+	      avg_tat, // avg turn around time
+		  avg_wt, // avg waiting time
+		  cpu_efficiency; // when cpu isn't idle
 
 	// by doing this, you can run either all 50 pro-
 	// cesses or you can run only the first couple
