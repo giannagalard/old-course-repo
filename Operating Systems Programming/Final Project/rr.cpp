@@ -79,6 +79,9 @@ int main() {
                i++; // dude. 
           }
           
+        burst_R[i] = p[i].burst_time;
+        p[i].p_id = i + 1;
+          
           /*
           cout << "Enter Arrival Time - ";
           cin >> p[i].arrival_time;
@@ -88,6 +91,8 @@ int main() {
           p[i].p_id = i + 1;
           cout << endl;
           */
+          
+          
      }
 
      // sort the proccesses
