@@ -54,17 +54,17 @@ int main() {
      int j, idx;
      int time_quantum;
      int total_idle = 0,
-         total_rt = 0,
-         total_tat = 0,
-         total_wt = 0;
+          total_rt = 0,
+          total_tat = 0,
+          total_wt = 0;
      float avg_rt, // avg response time
-           avg_tat, // avg turn around time
-           avg_wt, // avg waiting time
-           cpu_efficiency; // when cpu isn't idle
+          avg_tat, // avg turn around time
+          avg_wt, // avg waiting time
+          cpu_efficiency; // when cpu isn't idle
 
-   // by doing this, you can run either all 50 pro-
-   // cesses or you can run only the first couple
-   // for example 3 ... etc, however many you want
+  // by doing this, you can run either all 50 pro-
+  // cesses or you can run only the first couple
+  // for example 3 ... etc, however many you want
      cout << "How many processes ? - ";
      cin >> j; // prompt user for input
 
@@ -72,27 +72,14 @@ int main() {
      cin >> time_quantum; // prompt user
 
      for (int i = 0; i < j; i++) {
-          
+
           ifstream infile("input.txt");
           while (!infile.eof()) { // while reading the file ...
                infile >> p[i].p_id >> p[i].arrival_time >> p[i].burst_time;
+               burst_R[i] = p[i].burst_time;
                i++; // dude. 
           }
-          
-        burst_R[i] = p[i].burst_time;
-        p[i].p_id = i + 1;
-          
-          /*
-          cout << "Enter Arrival Time - ";
-          cin >> p[i].arrival_time;
-          cout << "Enter Burst Time - ";
-          cin >> p[i].burst_time;
-          burst_R[i] = p[i].burst_time;
           p[i].p_id = i + 1;
-          cout << endl;
-          */
-          
-          
      }
 
      // sort the proccesses
