@@ -201,4 +201,21 @@ int main() {
           cout << "Service time = " << p[i].burst_time << endl;
           cout << "Turnaround time = " << p[i].turnaround_time << endl;
      }
-}
+
+     // SAVING DATA TO 
+     // CSV FILE *****
+     /*
+     ofstream toCSV;
+     string filename;
+     filename += "data100.csv";
+     cout << filename << endl;
+     toCSV.open(filename);
+     toCSV << "Process ID, Service Time, Turn Around Time" << endl;
+     for (int i = 0; i < j; i++) {
+         toCSV << p[i].p_id << ","
+               << p[i].burst_time << ","
+               << p[i].turnaround_time << endl;
+     }
+     toCSV.close();
+     */
+ }
